@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+	background: #ffffff;
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size: 16px;
+	position: relative;
+	background-color: #4158D0;
+	background-image: linear-gradient(43deg, #c3bef0 0%, #ffc1f3 30%, #cffffe 66%);
+
+}
+
+.container {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+h1 {
+	font-size: 42px;
+	letter-spacing: 3px;
+	font-family: 'Gloria Hallelujah', cursive;
+}
+
+
+/*
+ * Styles for cards deck
+ */
+
+
+.deck {
+	width: 78%;
+	height: 100%;
+	background: #fdfdfd;
+	background-color: #85FFBD;
+	background-image: linear-gradient(45deg, #defcf9 0%, #fff 100%);
+	padding: 1rem;
+	border-radius: 4px;
+	box-shadow: 10px 10px 26px 0 rgba(46, 61, 73, 0.5);
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	margin: 1.5rem 0 0;
+}
+
+.row1, .row2, .row3 {
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.deck .card {
+	height: 7.8rem;
+	width: 7.8rem;
+	margin: 0.2rem 0.2rem;
+	background: #232931;
+	font-size: 0;
+	color: #ffffff;
+	border-radius: 5px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 5px 5px 15px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.open {
+	transform: rotateY(0);
+	background: #02b3e4;
+	cursor: default;
+	animation-name: flipInY;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
+}
+
+.deck .card.show {
+	font-size: 33px;
+}
+
+.deck .card.match {
+	cursor: default;
+	background: #17b978;
+	font-size: 33px;
+	animation-name: rubberBand;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
+}
+
+.deck .card.unmatched {
+	animation-name: pulse;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
+	background: #e2043b;
+}
+
+.deck .card.disabled {
+	pointer-events: none;
+	opacity: 0.9;
+}
+
+
+/*
+ * Styles for the popup after game completion
+ */
+
+
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.overlay:target {
+	visibility: visible;
+	opacity: 1;
+}
+  
+.popup1 {
+	font-size: 1.2rem;
+	line-height: 3rem;
+	margin: 180px auto;
+	padding: 45px;
+	background: #ffffff;
+	border-radius: 12px;
+	width: 80%;
+	position: relative;
+	transition: all 3s ease-in-out;
+	font-family: 'Gloria Hallelujah', cursive;
+}
+  
+.popup1 h2 {
+	letter-spacing: 3px;
+	margin-top: 0;
+	color: #333;
+}
+
+.popup1 {
+	max-height: 72%;
+	overflow: auto;
+	text-align: center;
+}
+
+.show {
+	visibility: visible !important;
+	opacity: 100 !important;
+}
+
+#play-again {
+	cursor: pointer;
+	background-color: #222831;
+	padding: 0.7rem 1rem;
+	font-size: 1.1rem;
+	display: block;
+	margin: 6px auto 0;
+	width: 30%;
+	font-family: 'Gloria Hallelujah', cursive;
+	color: #ffffff;
+	border-radius: 5px;
+}
+
+.restart {
+	margin: 15px 10px;
+}
+
+.restart button {
+	letter-spacing: 2.4px;
+	cursor: pointer;
+	padding: 0.6rem 1.8rem;
+	font-size: 18px;
+	border: 1px solid #222831;
+	background-color: #222831;
+	border-radius: 9px;
+	color: #ffffff;
+}
+
+/* animations */
+@keyframes flipInY {
+	from {
+		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+
+	40% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		animation-timing-function: ease-in;
+	}
+
+	60% {
+		transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		opacity: 1;
+	}
+
+	80% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+	}
+
+	to {
+		transform: perspective(400px);
+	}
+}
+
+@keyframes rubberBand {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, .95, 1);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes pulse {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	50% {
+		transform: scale3d(1.2, 1.2, 1.2);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+

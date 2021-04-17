@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font awsome CDN -->
+    <script src="https://kit.fontawesome.com/2b24fb5885.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">
+            Memory Game 🎮
+        </h1>
+        <ul class="deck" id="card-deck">
+            <div class="row1">
+                <li class="card card1" type="google">
+                    <i class="fab fa-google"></i>
+                </li>
+                <li class="card card1" type="facebook">
+                    <i class="fab fa-facebook"></i>
+                </li>
+                <li class="card match card1" type="discord">
+                    <i class="fab fa-discord"></i>
+                </li>
+                <li class="card card1" type="microsoft">
+                    <i class="fab fa-microsoft"></i>
+                </li>
+                <li class="card card1" type="instagram">
+                    <i class="fab fa-instagram"></i>
+                </li>
+                <li class="card card1" type="whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </li>
+            </div>
+            <div class="row2">
+                <li class="card card2" type="telegram">
+                    <i class="fab fa-telegram"></i>
+                </li>
+                <li class="card card2" type="youtube">
+                    <i class="fab fa-youtube"></i>
+                </li>
+                <li class="card card2" type="cube">
+                    <i class="fas fa-cube"></i>
+                </li>
+                <li class="card card2" type="google">
+                    <i class="fab fa-google"></i>
+                </li>
+                <li class="card card2" type="facebook">
+                    <i class="fab fa-facebook"></i>
+                </li>
+                <li class="card match card2" type="discord">
+                    <i class="fab fa-discord"></i>
+                </li>
+            </div>
+            <div class="row3">
+                <li class="card card3" type="microsoft">
+                    <i class="fab fa-microsoft"></i>
+                </li>
+                <li class="card card3" type="instagram">
+                    <i class="fab fa-instagram"></i>
+                </li>
+                <li class="card open show card3" type="whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </li>
+                <li class="card card3" type="telegram">
+                    <i class="fab fa-telegram"></i>
+                </li>
+                <li class="card card3" type="youtube">
+                    <i class="fab fa-youtube"></i>
+                </li>
+                <li class="card card3" type="cube">
+                    <i class="fas fa-cube"></i>
+                </li>
+            </div>
+        </ul>
+
+        <div id="popup" class="overlay">
+            <div class="popup1">
+                <h2>Congratulations On Completing the Game</h2>
+                <h3>Your result is as follows</h3>
+                <p>Moves Taken : <span id="finalMove"></span></p>
+                <p>Score : <span id="finalScore"></span></p>
+                <p id="finalMsg"></p>
+                <button id="play-again" onclick=playAgain()>
+                    Play Again
+                </button>
+            </div>
+        </div>
+        <div class="restart" onclick=startGame()>
+            <button>Restart</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
